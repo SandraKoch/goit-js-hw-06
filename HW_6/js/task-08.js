@@ -1,14 +1,23 @@
-const form = document.getElementsByClassName("login-form");
-console.log(form);
+const form = document.querySelector(".login-form");
 
-const inputs = document.querySelectorAll("input");
-console.log(inputs);
+const elements = form.elements;
 
 const button = document.querySelector('[type="submit"]');
-console.log(button);
 
 form.addEventListener("submit", (e) => {
-  form.preventDefault(); //how to prevent reload
+  e.preventDefault(); //how to prevent reload
 
-  // if ()
+  const {
+    elements: { email, password },
+  } = e.currentTarget;
+  console.log(email.value);
+
+  if (email.value === "" || password.value === "") {
+    console.log("You have to fill both fields");
+  } else {
+    console.log(
+      `Your email address: ${email.value} and password: ${password.value}`
+    );
+    e.currentTarget.reset();
+  }
 });

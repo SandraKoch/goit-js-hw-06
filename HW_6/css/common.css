@@ -23,6 +23,7 @@ button {
   cursor: pointer;
 }
 
+/* task 3 styles */
 .gallery {
   list-style-type: none;
   display: flex;

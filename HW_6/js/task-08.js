@@ -13,7 +13,9 @@ form.addEventListener("submit", (e) => {
   console.log(email.value);
 
   if (email.value === "" || password.value === "") {
-    console.log("You have to fill both fields");
+    const message = "You have to fill both fields";
+    alert(message);
+    // console.log("You have to fill both fields");
   } else {
     console.log(
       `Your email address: ${email.value} and password: ${password.value}`

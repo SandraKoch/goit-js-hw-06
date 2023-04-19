@@ -15,13 +15,11 @@ const images = [
 
 const galleryElement = document.querySelector(".gallery");
 
-images.forEach((img) => {
-  const template = `<li><img src="${img.url}" alt="${img.alt}"></li>`;
-  galleryElement.insertAdjacentHTML("beforeend", template);
-});
+const template = images.reduce((acc, currentValue) => {
+  return (
+    acc +
+    `<li><img src="${currentValue.url}" alt="${currentValue.alt}" class="image"></li>`
+  );
+}, "");
 
-const imgElement = document.querySelectorAll("img");
-console.log(imgElement);
-imgElement.forEach((element) => {
-  element.classList.add("image");
-});
+galleryElement.insertAdjacentHTML("beforeend", template);

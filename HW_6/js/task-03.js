@@ -15,11 +15,28 @@ const images = [
 
 const galleryElement = document.querySelector(".gallery");
 
-const template = images.reduce((acc, currentValue) => {
-  return (
-    acc +
-    `<li><img src="${currentValue.url}" alt="${currentValue.alt}" class="image"></li>`
-  );
-}, "");
+// ___________version with reduce___________
+// let template = "";
+// const template = images.reduce((acc, currentValue) => {
+//   return (
+//     acc +
+//     `<li><img src="${currentValue.url}" alt="${currentValue.alt}" class="image"></li>`
+//   );
+// }, "");
 
-galleryElement.insertAdjacentHTML("beforeend", template);
+// ___________version with forEach___________
+// let template = "";
+// images.forEach((element) => {
+//   template += `<li><img src="${element.url}" alt="${element.alt}" class="image"></li>`;
+// });
+
+let templates = images
+  .map(
+    (image) =>
+      `<li><img src="${image.url}" alt="${image.alt}" class="image"></li>`
+  )
+  .join("");
+
+console.log(templates);
+
+galleryElement.insertAdjacentHTML("beforeend", templates);
